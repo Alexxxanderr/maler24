@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maler24</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="multiStepForm" action="process.php" method="POST">
+            <div class="step" id="step1">
+                    <label for="plz">Ihre Postleitzahl</label>
+                    <input type="number" id="plz" name="plz"  min="5">
+                <button type="button" onclick="nextStep(1)">Weiter</button>
+            </div>
+
+            <div class="step" id="step2">
+                <fieldset>
+                    <legend>Was ist ihr Standort?</legend>
+                    <label for="Ort">Ort</label>
+                    <input type="text" id="Ort" name="Ort">
+                    <label for="Strasse">Straße</label>
+                    <input type="text" id="Strasse" name="Strasse">
+                    <label for="Hausnummer">Hausnummer</label>
+                    <input type="text" id="Hausnummer" name="Hausnummer">
+                </fieldset>
+                <button type="button" onclick="prevStep(2)">Zurück</button>
+                <button type="button" onclick="nextStep(2)">Weiter</button>
+            </div>
+
+            <div class="step" id="step3">
+                <fieldset>
+                    <legend>Art der Arbeit</legend>
+                    <label><input type="radio" name="art_der_arbeit" value="Privat"> Privat</label>
+                    <label><input type="radio" name="art_der_arbeit" value="Geschaeftlich"> Geschäftlich</label>
+                </fieldset>
+                <button type="button" onclick="prevStep(3)">Zurück</button>
+                <button type="button" onclick="nextStep(3)">Weiter</button>
+            </div>
+
+            <div class="step" id="step4">
+                <fieldset>
+                    <legend>Anfrage für</legend>
+                    <label><input type="radio" name="Innen oder außen" value="Innen" > Innen</label>
+                    <label><input type="radio" name="Innen oder außen" value="Außen"> Außen</label>
+                    <label><input type="radio" name="Innen oder außen" value="Innen und außen"> Innen und Außen</label>
+                </fieldset>
+                <button type="button" onclick="prevStep(4)">Zurück</button>
+                <button type="button" onclick="nextStep(4)">Weiter</button>
+            </div>
+
+            <div class="step" id="step5">
+                <fieldset>
+                    <legend>Streichen von</legend>
+                    <div style="display: flex;flex-direction: row;">
+                        <input type="checkbox" style="margin-right: 10px;" id="Waende" name="Waende" value="Waende">
+                        <label for="Waende"> Wände</label><br>
+                    </div>
+                    <div style="display: flex;flex-direction: row;">
+                        <input type="checkbox" style="margin-right: 10px;" id="Zimmerdecken" name="Zimmerdecken" value="Zimmerdecken">
+                        <label for="Zimmerdecken"> Zimmerdecken</label><br>
+                    </div>
+                    <div style="display: flex;flex-direction: row;">
+                        <input type="checkbox" style="margin-right: 10px;" id="Tueren" name="Tueren" value="Tueren">
+                        <label for="Tueren"> Türen</label><br>
+                    </div>
+                    <div style="display: flex;flex-direction: row;">
+                        <input type="checkbox" style="margin-right: 10px;" id="Fensterrahmen" name="Fensterrahmen" value="Fensterrahmen">
+                        <label for="Fensterrahmen"> Fensterrahmen</label><br>
+                    </div>
+                    <div style="display: flex;flex-direction: row;">
+                        <input type="checkbox" style="margin-right: 10px;" id="Andere" name="Andere" value="Andere">
+                        <label for="Andere"> Andere:</label><br>
+                    </div>
+                </fieldset>
+                <button type="button" onclick="prevStep(5)">Zurück</button>
+                <button type="button" onclick="nextStep(5)">Weiter</button>
+            </div>
+
+            <div class="step" id="step6">
+                <fieldset>
+                    <legend>Wie groß ist die Fläche in Quadratmeter?</legend>
+                    <input type="number" id="Quadratmeter" name="Quadratmeter">
+                </fieldset>
+                <button type="button" onclick="prevStep(6)">Zurück</button>
+                <button type="button" onclick="nextStep(6)">Weiter</button>
+            </div>
+
+            <div class="step" id="step7">
+                <fieldset>
+                    <legend>Datum der Durchführung</legend>
+                    <input type="date" id="Datum" name="Datum">
+                </fieldset>
+                <button type="button" onclick="prevStep(7)">Zurück</button>
+                <button type="button" onclick="nextStep(7)">Weiter</button>
+            </div>
+
+            <div class="step" id="step8">
+                <fieldset>
+                    <legend>Projektbeschreibung</legend>
+                    <textarea id="Projektbeschreibung" name="Projektbeschreibung" rows="4" cols="50" placeholder="z.B. Maße, Anzahl der Zimmer, Art der Oberfläche, etc."></textarea>
+                </fieldset>
+                <button type="button" onclick="prevStep(8)">Zurück</button>
+                <button type="button" onclick="nextStep(8)">Weiter</button>
+            </div>
+
+            <div class="step" id="step9">
+                <fieldset>
+                    <label for="Vorname">Vorname</label>
+                    <input type="text" id="Vorname" name="Vorname" >
+                    <label for="Nachname">Nachname</label>
+                    <input type="text" id="Nachname" name="Nachname" >
+                    <button type="button" onclick="prevStep(9)">Zurück</button>
+                    <button type="button" onclick="nextStep(9)">Weiter</button>
+                </fieldset>
+            </div>
+            <div class="step" id="step10">
+                <fieldset>
+                    <label for="email">Email</label>
+                    <input type="email" class="email" id="email" name="email" >
+                    <label for="tel">Telefon</label>
+                    <input type="tel" class="tel" id="tel" name="tel" ><br>
+                    <button type="button" onclick="prevStep(10)">Zurück</button>
+                    <button type="button" onclick="goToSummary()">Zusammenfassung</button>
+                </fieldset>
+            </div>
+
+            <div class="step" id="summary">
+                <fieldset>
+                    <h2>Zusammenfassung</h2>
+                    <p>Letzter Schritt! Vervollständigen Sie Ihre Anfrage, um die Ergebnisse zu sehen. Unsere Handwerker melden sich oft zuerst telefonisch, um Ihnen ein individuelles Angebot zu machen. Dies ist unverbindlich.</p>
+                    <br>
+                    <div id="summaryContent"></div>
+                    <button type="button" onclick="editStep(1)">Bearbeiten</button>
+                    <button type="submit" class="anfragen">Kostenlos Anfragen</button>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
